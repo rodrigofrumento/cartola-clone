@@ -35,3 +35,9 @@ func (a *AddPlayerUseCase) getPlayerRepository(ctx context.Context) repository.P
 	}
 	return playerRepository.(repository.PlayerRepositoryInterface)
 }
+
+func NewAddPlayerUseCase(uow uow.UowInterface) *AddPlayerUseCase {
+	return &AddPlayerUseCase{
+		Uow: uow,
+	}
+}
